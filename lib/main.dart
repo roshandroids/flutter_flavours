@@ -1,6 +1,8 @@
+import 'package:flavours_flutter/flavour_config.dart';
+import 'package:flavours_flutter/flavour_type_extension.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+Future initializeApp() async {
   runApp(const MyApp());
 }
 
@@ -39,9 +41,13 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final flavour = Constants.whereAmI;
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        backgroundColor: flavour.getFlavourColor(),
+        title: Text(
+          'You are running ${flavour.getFlavourName()} App',
+        ),
       ),
       body: Center(
         child: Column(
